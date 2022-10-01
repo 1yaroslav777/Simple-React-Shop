@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
@@ -18,10 +19,11 @@ const allSneakers = [{title:'Nike SB Charge Mid Canvas',
 
 
 function App() {
+  const[cartOpened, setCartOpened] = React.useState(false);
   return (
     <div className="wrapper clear">
-      <Drawer/>
-      <Header />
+      {cartOpened && <Drawer onCloseClick ={()=>setCartOpened(false)}/>}
+      <Header onCartClick ={()=>setCartOpened(true)} />
       <div className="content p-40">
         <div className="d-flex align-center mb-40 justify-between">
           <h1>All goods</h1>
@@ -36,6 +38,8 @@ function App() {
               title={obj.title} 
               price = {obj.price} 
               imageUrl = {obj.imageUrl} 
+              onPlus = {()=>alert(obj.title)}
+              onFavorite = {()=>alert(obj.price)}
               />
           ))}
           
