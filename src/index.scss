@@ -140,6 +140,7 @@ p {
   position: absolute;
   left: 0;
   top: 0;
+  
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
@@ -154,16 +155,28 @@ p {
   border: 1px solid #f3f3f3;
   border-radius: 20px;
   overflow: hidden;
-
+  padding: 20px;
   p {
     font-size: 16px;
+    margin: 0;
   }
 
   b {
     font-size: 14px;
   }
 
+  .cartItemImg{
+    height: 70px;
+    width: 70px;
+    background-size: contain;
+    background-position: 0 -3px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+  }
+
   .removeBtn {
+    
+    
     opacity: 0.5;
     transition: opacity 0.2s ease-in-out;
     cursor: pointer;

@@ -1,26 +1,25 @@
-const Drawer = (props) => {
+const Drawer = ({onCloseClick,items = []}) => {
 return(
     <div  className="overlay">
     <div className="drawer">
-    <h2 className="mb-30 d-flex justify-between ">Cart<img onClick={props.onCloseClick} className="removeBtn cu-p" src="/imgs/btn-remove.svg" alt="Close" /></h2>
+    <h2 className="mb-30 d-flex justify-between ">Cart<img onClick={onCloseClick} className="removeBtn cu-p" src="/imgs/btn-remove.svg" alt="Close" /></h2>
 
     <div className="items">
-      <div className="cartItem d-flex align-center">
-        <img className="mr-20" width={90} height={90} src="/imgs/Sneakers/s1.jpg" alt="Sneakers" />
-        <div className="mr-20">
-          <p className="mb-5">Nike SB Charge Mid Canvas</p>
-          <b>300$</b>
+      {
+        items.map(obj => (
+        <div className="cartItem d-flex align-left mb-20">
+        <div style={{backgroundImage:`url(${obj.imageUrl})`}}
+        className ="cartItemImg"
+        ></div>
+        <div className="mr-20 flex">
+          <p className="mb-5">{obj.title}</p>
+          <b>{obj.price} $</b>
         </div>
         <img className="removeBtn" src="/imgs/btn-remove.svg" alt="Remove" />
       </div>
-      <div className="cartItem d-flex align-center mb-20">
-        <img className="mr-20" width={90} height={90} src="/imgs/Sneakers/s1.jpg" alt="Sneakers" />
-        <div className="mr-20">
-          <p className="mb-5">Nike SB Charge Mid Canvas</p>
-          <b>300$</b>
-        </div>
-        <img className="removeBtn" src="/imgs/btn-remove.svg" alt="Remove" />
-      </div>
+      ))
+      }
+      
     </div>
     <div className="cartTotalBlock">
       <ul>
